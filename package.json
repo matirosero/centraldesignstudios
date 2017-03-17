@@ -1,0 +1,45 @@
+{
+  "name": "centraldesign",
+  "version": "1.0.0",
+  "description": "=== Central Design Studios ===",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matirosero/centraldesignstudios.git"
+  },
+  "keywords": [
+    "wordpress",
+    "components",
+    "underscores",
+    "isotope",
+    "portfolio",
+    "grid"
+  ],
+  "author": "Matilde Rosero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matirosero/centraldesignstudios/issues"
+  },
+  "homepage": "https://github.com/matirosero/centraldesignstudios#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-cache": "^0.4.6",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-svg-sprite": "^1.3.6",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-uglify": "^2.1.0"
+  }
+}

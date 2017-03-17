@@ -142,6 +142,8 @@ add_action( 'widgets_init', 'centraldesign_widgets_init' );
 function centraldesign_scripts() {
 	wp_enqueue_style( 'centraldesign-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'centraldesign-dist-style', get_template_directory_uri() . '/assets/dist/css/style.css', array(), '' );
+
 	wp_enqueue_script( 'centraldesign-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'centraldesign-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -156,6 +158,11 @@ add_action( 'wp_enqueue_scripts', 'centraldesign_scripts' );
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
+
+/**
+ * Enqueue styles and scripts for this theme.
+ */
+// require get_template_directory() . '/inc/enqueue.php';
 
 /**
  * Custom template tags for this theme.
