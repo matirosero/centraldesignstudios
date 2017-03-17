@@ -1,4 +1,4 @@
-=== Dentral Design Studios ===
+=== Central Design Studios ===
 
 Contributors:
 Tags:
@@ -23,7 +23,7 @@ Grid portfolio theme
 
 = Does this theme support any plugins? =
 
-Dentral Design Studios includes support for Jetpack's Infinite Scroll as well as other features.
+Central Design Studios includes support for Jetpack's Infinite Scroll as well as other features.
 
 == Changelog ==
 

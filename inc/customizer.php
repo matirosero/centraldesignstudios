@@ -1,6 +1,6 @@
 <?php
 /**
- * Dentral Design Studios Theme Customizer
+ * Central Design Studios Theme Customizer
  *
  * @package CentralDesignStudios
  */
