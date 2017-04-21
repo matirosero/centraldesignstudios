@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * The template for displaying portfolio items
  *
  * @package CentralDesignStudios
@@ -7,39 +7,76 @@
  ?>
 <!-- Portfolio Filter Categories Loop -->
 
+<ul id="filters">
+    <?php
+        $terms = get_terms('project-categories');
+        $count = count($terms);
+            echo '<li><a href="javascript:void(0)" title="" data-filter=".all" class="active">All</a></li>';
+        if ( $count > 0 ){
+
+            foreach ( $terms as $term ) {
+
+                $termname = strtolower($term->name);
+                $termname = str_replace(' ', '-', $termname);
+                echo '<li><a href="javascript:void(0)" title="" data-filter=".'.$termname.'">'.$term->name.'</a></li>';
+            }
+        }
+    ?>
+</ul>
+
+
 <!-- Portfolio Custom Post Loop -->
 
 <?php
 
-				if ( get_query_var( 'paged' ) ) :
-					$paged = get_query_var( 'paged' );
-				elseif ( get_query_var( 'page' ) ) :
-					$paged = get_query_var( 'page' );
-				else :
-					$paged = 1;
-				endif;
-
-				$posts_per_page = 10;
 				$args = array(
 					'post_type'      => 'project',
 					'posts_per_page' => -1,
-					'paged'          => $paged,
 				);
 				$project_query = new WP_Query ( $args );
-				
+
 				if ( post_type_exists( 'project' ) && $project_query -> have_posts() ) :
 			?>
 
-				<div class="portfolio-wrapper">
+				<!-- <div class="portfolio-wrapper"> -->
 
 					<?php /* Start the Loop */ ?>
 					<?php while ( $project_query -> have_posts() ) : $project_query -> the_post(); ?>
 
-						<?php get_template_part( 'components/features/portfolio/content', 'portfolio' ); ?>
+
+<?php
+     /* 
+     Pull category for each unique post using the ID 
+     */
+     $terms = get_the_terms( $post->ID, 'portfolio-categories' );	
+     if ( $terms && ! is_wp_error( $terms ) ) : 
+ 
+         $links = array();
+ 
+         foreach ( $terms as $term ) {
+             $links[] = $term->name;
+         }
+ 
+         $tax_links = join( " ", str_replace(' ', '-', $links));          
+         $tax = strtolower($tax_links);
+     else :	
+	 $tax = '';					
+     endif; 
+ 
+     /* Insert category name into portfolio-item class */ 
+     echo '<div class="all portfolio-item '. $tax .'">';
+     echo '<a href="'. get_permalink() .'" title="'. the_title_attribute() .'">';
+     echo '<div class="thumbnail">'. the_post_thumbnail() .'</div>';
+     echo '</a>'; 
+     echo '<h2>'. the_title() .'</h2>';
+     echo '<div>'. the_excerpt() .'</div>';
+     echo '</div>'; 
+?>
+						<?php //get_template_part( 'components/features/portfolio/content', 'portfolio' ); ?>
 
 					<?php endwhile; ?>
 
-				</div>
+				<!-- </div> -->
 				<?php
 					the_posts_navigation();
 					wp_reset_postdata();
