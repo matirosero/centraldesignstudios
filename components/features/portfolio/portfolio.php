@@ -4,6 +4,12 @@
  *
  * @package CentralDesignStudios
  */
+ ?>
+<!-- Portfolio Filter Categories Loop -->
+
+<!-- Portfolio Custom Post Loop -->
+
+<?php
 
 				if ( get_query_var( 'paged' ) ) :
 					$paged = get_query_var( 'paged' );
@@ -13,14 +19,15 @@
 					$paged = 1;
 				endif;
 
-				$posts_per_page = get_option( 'jetpack_portfolio_posts_per_page', '10' );
+				$posts_per_page = 10;
 				$args = array(
-					'post_type'      => 'jetpack-portfolio',
-					'posts_per_page' => $posts_per_page,
+					'post_type'      => 'project',
+					'posts_per_page' => -1,
 					'paged'          => $paged,
 				);
 				$project_query = new WP_Query ( $args );
-				if ( post_type_exists( 'jetpack-portfolio' ) && $project_query -> have_posts() ) :
+				
+				if ( post_type_exists( 'project' ) && $project_query -> have_posts() ) :
 			?>
 
 				<div class="portfolio-wrapper">
