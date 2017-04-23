@@ -25,7 +25,7 @@ var paths = {
 	nodePath: 'node_modules/',
 	jsPath: 'assets/js/concat',
 	destPath: 'assets/dist/',
-	// foundationJSpath: 'node_modules/foundation-sites/js/',
+	isotopePath: 'node_modules/isotope-layout/dist/',
 	imgPath: 'assets/img/'
 };
 
@@ -161,6 +161,33 @@ gulp.task('js', function() {
 
 
 ////////////////////////////////////////////////////////////////////////////////
+// Foundation JS task, which gives us flexibility to choose what plugins we want
+////////////////////////////////////////////////////////////////////////////////
+
+gulp.task('isotope-js', function() {
+	return gulp.src([
+
+		/* Choose what JS Plugin you'd like to use. Note that some plugins also
+		require specific utility libraries that ship with Foundation—refer to a
+		plugin's documentation to find out which plugins require what, and see
+		the Foundation's JavaScript page for more information.
+		http://foundation.zurb.com/sites/docs/javascript.html */
+
+		// Core Foundation - needed when choosing plugins ala carte
+		paths.isotopePath + 'isotope.pkgd.min.js',
+
+	])
+	// .pipe(babel({
+	// 	presets: ['es2015'],
+	// 	compact: true
+	// }))
+	// .pipe(concat('foundation.js'))
+	// .pipe(uglify())
+	.pipe(gulp.dest(paths.destPath + 'js'));
+});
+
+
+////////////////////////////////////////////////////////////////////////////////
 // Watch our files and fire off a task when something changes
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -174,4 +201,4 @@ gulp.task('watch', function() {
 
 // Our default gulp task, which runs all of our tasks upon typing in 'gulp' in Terminal
 gulp.task('default', ['styles', 'js', 'svg-sprite', 'optimize-images']);
-gulp.task('serve', ['svg-sprite', 'optimize-images', 'styles', 'js', 'browser-sync', 'watch']);
+gulp.task('serve', ['svg-sprite', 'optimize-images', 'styles', 'js', 'browser-sync', 'isotope-js', 'watch']);

@@ -52,4 +52,12 @@ add_action( 'wp_enqueue_scripts', function() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if (!is_admin()) {
+	    // script will load in footer
+		wp_enqueue_script( 'isotope-js',  get_stylesheet_directory_uri() . '/assets/dist/js/isotope.pkgd.min.js', array('jquery'), true );
+	}
+
+
+
 } );
