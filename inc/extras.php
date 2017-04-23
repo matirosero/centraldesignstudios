@@ -32,3 +32,22 @@ function centraldesign_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'centraldesign_body_classes' );
+
+
+
+function init_isotope() {
+    ?>
+        <script>
+			// (function($){
+
+			// 	$('.portfolio').isotope({
+			// 	    // options
+			// 	    itemSelector: '.portfolio-item',
+			// 	    layoutMode: 'fitRows'
+			// 	});
+
+			// } ) ( jQuery );
+        </script>
+    <?php
+}
+add_action('wp_head', 'init_isotope');

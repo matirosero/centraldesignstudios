@@ -26,8 +26,27 @@
 
 
 <!-- Portfolio Custom Post Loop -->
-
+    <div class="portfolio">
+    	<!-- <div class="portfolio-sizer"></div -->>
 <?php
+
+
+
+				// if ( get_query_var( 'paged' ) ) :
+				// 	$paged = get_query_var( 'paged' );
+				// elseif ( get_query_var( 'page' ) ) :
+				// 	$paged = get_query_var( 'page' );
+				// else :
+				// 	$paged = 1;
+				// endif;
+
+				// $posts_per_page = 10;
+				// $args = array(
+				// 	'post_type'      => 'project',
+				// 	'posts_per_page' => -1,
+				// 	'paged'          => $paged,
+				// );
+
 
 				$args = array(
 					'post_type'      => 'project',
@@ -45,32 +64,48 @@
 
 
 <?php
-     /* 
-     Pull category for each unique post using the ID 
+     /*
+     Pull category for each unique post using the ID
      */
-     $terms = get_the_terms( $post->ID, 'portfolio-categories' );	
-     if ( $terms && ! is_wp_error( $terms ) ) : 
- 
+     $terms = get_the_terms( $post->ID, 'portfolio-categories' );
+     if ( $terms && ! is_wp_error( $terms ) ) :
+
          $links = array();
- 
+
          foreach ( $terms as $term ) {
              $links[] = $term->name;
          }
- 
-         $tax_links = join( " ", str_replace(' ', '-', $links));          
+
+         $tax_links = join( " ", str_replace(' ', '-', $links));
          $tax = strtolower($tax_links);
-     else :	
-	 $tax = '';					
-     endif; 
- 
-     /* Insert category name into portfolio-item class */ 
-     echo '<div class="all portfolio-item '. $tax .'">';
-     echo '<a href="'. get_permalink() .'" title="'. the_title_attribute() .'">';
+     else :
+	 $tax = '';
+     endif;
+
+     /*
+     Image size
+     */
+	$post_thumbnail_id = get_post_thumbnail_id();
+     $image_attributes = wp_get_attachment_image_src( $post_thumbnail_id, 'full' );
+	if ( $image_attributes ) : 
+	    $width = $image_attributes[1]; 
+		$height = $image_attributes[2]; 
+	endif; 
+
+	$portfolio_class = 'portfolio-item';
+	if ($width > $height) {
+		$portfolio_class .= ' portfolio-item--width2';
+	}
+
+     /* Insert category name into portfolio-item class */
+     echo '<div class="all '.$portfolio_class.' '. $tax .'">';
+     echo '<a href="'. get_permalink() .'">';
+     // echo '<a href="'. get_permalink() .'" title="'. the_title_attribute() .'">';
      echo '<div class="thumbnail">'. the_post_thumbnail() .'</div>';
-     echo '</a>'; 
-     echo '<h2>'. the_title() .'</h2>';
-     echo '<div>'. the_excerpt() .'</div>';
-     echo '</div>'; 
+     echo '</a>';
+     // echo '<h2>'. the_title() .'</h2>';
+     // echo '<div>'. the_excerpt() .'</div>';
+     echo '</div>';
 ?>
 						<?php //get_template_part( 'components/features/portfolio/content', 'portfolio' ); ?>
 
@@ -102,3 +137,4 @@
 					</div>
 				</section>
 			<?php endif; ?>
+   </div><!-- #portfolio -->

@@ -139,6 +139,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "shared/media";
 
 /*--------------------------------------------------------------
+# vendors
+--------------------------------------------------------------*/
+@import "vendors/vendors";
+
+/*--------------------------------------------------------------
 # Central Design Studios
 --------------------------------------------------------------*/
 @import "components";
