@@ -99,7 +99,7 @@
 
      /* Insert category name into portfolio-item class */
      echo '<div class="all '.$portfolio_class.' '. $tax .'">';
-     echo '<a href="'. get_permalink() .'">';
+     echo '<a class="content" href="'. get_permalink() .'">';
      // echo '<a href="'. get_permalink() .'" title="'. the_title_attribute() .'">';
      echo '<div class="thumbnail">'. the_post_thumbnail() .'</div>';
      echo '</a>';

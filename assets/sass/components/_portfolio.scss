@@ -1,8 +1,39 @@
-.jetpack-portfolio {
-  float: none;
-  width: 100%;
+// .jetpack-portfolio {
+//   float: none;
+//   width: 100%;
+// }
+
+// .portfolio-entry-header {
+//   font-size: 80%;
+// }
+
+
+.portfolio-sizer,
+.portfolio-item {
+	width: 50%;
+}
+.portfolio-item {
+	// overflow: hidden;
+	// @include aspect-ratio(1, 1);
+	a {
+		display: block;
+	}
+
+}
+.portfolio-item--width2 {
+	width: 100%;
+
+		// @include aspect-ratio(2, 1);
+
 }
 
-.portfolio-entry-header {
-  font-size: 80%;
+@media screen and (min-width: #{$breakpoint_tablet}) {
+	.portfolio-sizer,
+	.portfolio-item {
+		width: 25%;
+	}
+	.portfolio-item--width2 {
+		width: 50%;
+	}
 }
+
