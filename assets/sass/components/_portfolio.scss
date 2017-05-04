@@ -17,6 +17,9 @@
 	// @include aspect-ratio(1, 1);
 	a {
 		display: block;
+		img {
+			display: block;
+		}
 	}
 
 }

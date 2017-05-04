@@ -166,7 +166,7 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Image processing queue.
  */
-require_once get_stylesheet_directory() . '/inc/image-processing-queue/image-processing-queue.php';
+require_once get_stylesheet_directory() . '/inc/wp-image-processing-queue/image-processing-queue.php';
 
 /**
  * Load Jetpack compatibility file.
