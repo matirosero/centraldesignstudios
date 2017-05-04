@@ -42,8 +42,8 @@ function centraldesign_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	add_image_size( 'centraldesign-featured-image', 640, 9999 );
-	add_image_size( 'centraldesign-portfolio-featured-image', 800, 9999 );
+	// add_image_size( 'centraldesign-featured-image', 640, 9999 );
+	// add_image_size( 'centraldesign-portfolio-featured-image', 800, 9999 );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -162,6 +162,11 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Image processing queue.
+ */
+require_once get_stylesheet_directory() . '/inc/image-processing-queue/image-processing-queue.php';
 
 /**
  * Load Jetpack compatibility file.
