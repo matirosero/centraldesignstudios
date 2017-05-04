@@ -26,6 +26,7 @@ var paths = {
 	jsPath: 'assets/js/concat',
 	destPath: 'assets/dist/',
 	isotopePath: 'node_modules/isotope-layout/dist/',
+	imagesLoadedPath: 'node_modules/imagesloaded/',
 	imgPath: 'assets/img/'
 };
 
@@ -166,23 +167,9 @@ gulp.task('js', function() {
 
 gulp.task('isotope-js', function() {
 	return gulp.src([
-
-		/* Choose what JS Plugin you'd like to use. Note that some plugins also
-		require specific utility libraries that ship with Foundation—refer to a
-		plugin's documentation to find out which plugins require what, and see
-		the Foundation's JavaScript page for more information.
-		http://foundation.zurb.com/sites/docs/javascript.html */
-
-		// Core Foundation - needed when choosing plugins ala carte
 		paths.isotopePath + 'isotope.pkgd.min.js',
-
+		paths.imagesLoadedPath + 'imagesloaded.pkgd.min.js',
 	])
-	// .pipe(babel({
-	// 	presets: ['es2015'],
-	// 	compact: true
-	// }))
-	// .pipe(concat('foundation.js'))
-	// .pipe(uglify())
 	.pipe(gulp.dest(paths.destPath + 'js'));
 });
 

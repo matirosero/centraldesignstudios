@@ -56,6 +56,7 @@ add_action( 'wp_enqueue_scripts', function() {
 	if (!is_admin()) {
 	    // script will load in footer
 		wp_enqueue_script( 'isotope-js',  get_stylesheet_directory_uri() . '/assets/dist/js/isotope.pkgd.min.js', array('jquery'), true );
+		wp_enqueue_script( 'images-loaded',  get_stylesheet_directory_uri() . '/assets/dist/js/imagesloaded.pkgd.min.js', false, true );
 	}
 
 

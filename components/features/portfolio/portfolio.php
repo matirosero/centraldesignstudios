@@ -27,7 +27,7 @@
 
 <!-- Portfolio Custom Post Loop -->
     <div class="portfolio">
-    	<!-- <div class="portfolio-sizer"></div -->>
+    	<div class="portfolio-sizer"></div>
 <?php
 
 
