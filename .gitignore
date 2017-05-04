@@ -4,4 +4,3 @@ npm-debug.log
 .DS_Store
 *.sublime-*
 sftp-config.json
-inc/image-processing-queue
