@@ -47,7 +47,7 @@ function centraldesign_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Top', 'centraldesign' ),
+		'main-menu' => esc_html__( 'Top', 'centraldesign' ),
 	) );
 
 	/**
@@ -85,10 +85,10 @@ function centraldesign_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'centraldesign_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+	// add_theme_support( 'custom-background', apply_filters( 'centraldesign_custom_background_args', array(
+	// 	'default-color' => 'ffffff',
+	// 	'default-image' => '',
+	// ) ) );
 }
 endif;
 add_action( 'after_setup_theme', 'centraldesign_setup' );
