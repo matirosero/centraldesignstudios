@@ -40,3 +40,10 @@ body {
 ## Pages
 --------------------------------------------------------------*/
 @import "pages";
+
+.site-footer {
+	margin: 2rem 0;
+	text-align: center;
+	padding-left: $gutter-small;
+	padding-right: $gutter-small;
+}

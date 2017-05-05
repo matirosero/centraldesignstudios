@@ -83,8 +83,9 @@
 				   	echo ipq_get_theme_image( get_post_thumbnail_id( get_the_id() ), array(
 							// array( 400, 200, true ),
 							// array( 620, 310, true ),
-							// array( 800, 400, true ),
+							// array( 900, 450, true ),
 							array( 1024, 512, true ),
+							// array( 1200, 600, true ),
 						),
 					    array(
 					        'class' => 'portfolio-image'
@@ -93,9 +94,9 @@
 				else :
 				   	echo ipq_get_theme_image( get_post_thumbnail_id( get_the_id() ), array(
 							// array( 400, 400, true ),
-							// array( 620, 620, true ),
+							array( 620, 620, true ),
 							array( 800, 800, true ),
-							// array( 1024, 1024, true ),
+							array( 1024, 1024, true ),
 						),
 					    array(
 					        'class' => 'portfolio-image'

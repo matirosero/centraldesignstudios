@@ -7,6 +7,21 @@
 //   font-size: 80%;
 // }
 
+#filters {
+	@include reset-list;
+	margin-top: 1rem;
+	text-align: center;
+	li {
+		display: inline-block;
+		
+		padding: 0 .5rem;
+	}
+}
+
+.portfolio {
+	// background-color: $portfolio-grid-background;
+	// border-left: 6px solid #fff;
+}
 
 .portfolio-sizer,
 .portfolio-item {
@@ -17,6 +32,10 @@
 	// @include aspect-ratio(1, 1);
 	a {
 		display: block;
+		// padding: 15px;
+		// border-bottom: 3px solid #fff;
+		// border-top: 3px solid #fff;
+		// border-right: 6px solid #fff;
 		img {
 			display: block;
 		}
