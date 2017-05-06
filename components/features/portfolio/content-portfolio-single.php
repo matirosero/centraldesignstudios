@@ -7,6 +7,9 @@
 if ( isset( $GLOBALS['content_width'] ) ) {
 	$GLOBALS['content_width'] = 1100;
 }
+
+$gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -17,6 +20,14 @@ if ( isset( $GLOBALS['content_width'] ) ) {
 	</header>
 	<div class="entry-content">
 		<?php the_content(); ?>
+
+		<?php
+		if ( '' != get_the_post_thumbnail() && !$gallery ) { ?>
+			<div class="post-thumbnail">
+				<?php the_post_thumbnail( 'centraldesign-featured-image' ); ?>
+			</div>
+		<?php  } ?>
+
 		<?php
 			wp_link_pages( array(
 				'before'   => '<div class="page-links clear">',
@@ -28,14 +39,13 @@ if ( isset( $GLOBALS['content_width'] ) ) {
 
 
 	<?php
-	$gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
 
-	if ( $gallery ) { 
+	if ( $gallery ) {
 
-		$post_thumbnail_id = get_post_thumbnail_id();
-		$gallery = array($post_thumbnail_id => '') + $gallery;
-
-		?>
+		if ( '' != get_the_post_thumbnail() ) {
+			$post_thumbnail_id = get_post_thumbnail_id();
+			$gallery = array($post_thumbnail_id => '') + $gallery;
+		} ?>
 
 	   	<div class="portfolio">
 	    	<div class="portfolio-sizer"></div>
@@ -65,12 +75,7 @@ if ( isset( $GLOBALS['content_width'] ) ) {
 
 	   	</div><!-- #portfolio -->
 
-
-	<?php } else {
-		echo 'no gallery';
-	}
-
-	?>
+	<?php } ?>
 
 	<footer class="entry-meta">
 
