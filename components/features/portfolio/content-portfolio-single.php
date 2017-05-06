@@ -29,37 +29,48 @@ if ( isset( $GLOBALS['content_width'] ) ) {
 
 	<?php
 	$gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
-	// var_dump($gallery);
+
+	if ( $gallery ) { 
+
+		$post_thumbnail_id = get_post_thumbnail_id();
+		$gallery = array($post_thumbnail_id => '') + $gallery;
+
+		?>
+
+	   	<div class="portfolio">
+	    	<div class="portfolio-sizer"></div>
+
+	    	<?php
+
+			// Loop through them and output an image
+
+			foreach ( (array) $gallery as $attachment_id => $attachment_url ) {
+
+				/*
+			    Get portfolio item
+			    */
+				$item_type = mro_portfolio_item_type( $attachment_id );
+				$portfolio_class = mro_portfolio_item_class($item_type);
+				$srcset = mro_portfolio_item_get_srcset( $attachment_id, $item_type );
+
+				?>
+
+			    <div class="all <?php echo $portfolio_class; ?>">
+			    	<a class="content" href="#">
+			    		<div class="thumbnail"><?php echo $srcset; ?></div>
+			    	</a>
+			    </div><!-- .portfolio-item -->
+
+			<?php } ?>
+
+	   	</div><!-- #portfolio -->
+
+
+	<?php } else {
+		echo 'no gallery';
+	}
+
 	?>
-
-    <div class="portfolio">
-    	<div class="portfolio-sizer"></div>
-
-    	<?php
-		$portfolio_class = 'portfolio-item';
-
-		// Loop through them and output an image
-
-		foreach ( (array) $gallery as $attachment_id => $attachment_url ) {
-
-			/*
-		    Get portfolio item
-		    */
-			$item_type = mro_portfolio_item_type( $attachment_id );
-			$portfolio_class = mro_portfolio_item_class($item_type);
-			$srcset = mro_portfolio_item_get_srcset( $attachment_id, $item_type );
-
-			?>
-
-		    <div class="all <?php echo $portfolio_class; ?>">
-		    	<a class="content" href="#">
-		    		<div class="thumbnail"><?php echo $srcset; ?></div>
-		    	</a>
-		    </div><!-- .portfolio-item -->
-
-		<?php } ?>
-
-   </div><!-- #portfolio -->
 
 	<footer class="entry-meta">
 
