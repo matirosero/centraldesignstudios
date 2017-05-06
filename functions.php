@@ -164,6 +164,11 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Project portfolio functions.
+ */
+require_once get_stylesheet_directory() . '/inc/portfolio-functions.php';
+
+/**
  * Image processing queue.
  */
 require_once get_stylesheet_directory() . '/inc/wp-image-processing-queue/image-processing-queue.php';

@@ -70,14 +70,20 @@
 				endif;
 
 				$portfolio_class = 'portfolio-item';
+
 				if ($width > $height) {
 					$portfolio_class .= ' portfolio-item--width2';
 				}
 
-			    /* Insert category name into portfolio-item class */
+				
+
+				$item_type = mro_portfolio_item_type( $post_thumbnail_id );
+
+				$portfolio_class = mro_portfolio_item_class($item_type);
+
 			    echo '<div class="all '.$portfolio_class.' '. $tax .'">';
 			    echo '<a class="content" href="'. get_permalink() .'">';
-			    // echo '<a href="'. get_permalink() .'" title="'. the_title_attribute() .'">';
+
 			    echo '<div class="thumbnail">';
 			   	if ($width > $height) :
 				   	echo ipq_get_theme_image( get_post_thumbnail_id( get_the_id() ), array(
@@ -103,6 +109,7 @@
 					    )
 					);
 				endif;
+				echo $item_type;
 			    echo '</div>';
 			    echo '</a>';
 			    // echo '<h2>'. the_title() .'</h2>';
