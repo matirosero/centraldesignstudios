@@ -60,62 +60,24 @@
 			    endif;
 
 			    /*
-			    Image size
+			    Get portfolio item
 			    */
 				$post_thumbnail_id = get_post_thumbnail_id();
-			    $image_attributes = wp_get_attachment_image_src( $post_thumbnail_id, 'full' );
-				if ( $image_attributes ) :
-				    $width = $image_attributes[1];
-					$height = $image_attributes[2];
-				endif;
-
-				$portfolio_class = 'portfolio-item';
-
-				if ($width > $height) {
-					$portfolio_class .= ' portfolio-item--width2';
-				}
-
-				
 
 				$item_type = mro_portfolio_item_type( $post_thumbnail_id );
 
 				$portfolio_class = mro_portfolio_item_class($item_type);
 
-			    echo '<div class="all '.$portfolio_class.' '. $tax .'">';
-			    echo '<a class="content" href="'. get_permalink() .'">';
+				$srcset = mro_portfolio_item_get_srcset( $post_thumbnail_id, $item_type );
 
-			    echo '<div class="thumbnail">';
-			   	if ($width > $height) :
-				   	echo ipq_get_theme_image( get_post_thumbnail_id( get_the_id() ), array(
-							// array( 400, 200, true ),
-							// array( 620, 310, true ),
-							// array( 900, 450, true ),
-							array( 1024, 512, true ),
-							// array( 1200, 600, true ),
-						),
-					    array(
-					        'class' => 'portfolio-image'
-					    )
-					);
-				else :
-				   	echo ipq_get_theme_image( get_post_thumbnail_id( get_the_id() ), array(
-							// array( 400, 400, true ),
-							array( 620, 620, true ),
-							array( 800, 800, true ),
-							array( 1024, 1024, true ),
-						),
-					    array(
-					        'class' => 'portfolio-image'
-					    )
-					);
-				endif;
-				echo $item_type;
-			    echo '</div>';
-			    echo '</a>';
-			    // echo '<h2>'. the_title() .'</h2>';
-			    // echo '<div>'. the_excerpt() .'</div>';
-			    echo '</div>';
 				?>
+
+			    <div class="all <?php echo $portfolio_class.' '. $tax; ?>">
+			    	<a class="content" href="<?php echo get_permalink(); ?>">
+			    		<div class="thumbnail"><?php echo $srcset; ?></div>
+			    	</a>
+			    </div><!-- .portfolio-item -->
+
 					<?php //get_template_part( 'components/features/portfolio/content', 'portfolio' ); ?>
 
 			<?php endwhile; ?>

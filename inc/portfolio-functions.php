@@ -45,11 +45,33 @@ function mro_portfolio_item_class( $item_type ) {
 function mro_portfolio_item_get_srcset( $attachment_id, $item_type ) {
 
 	if ( $item_type == 'square' ) {
-		$sizes = array();
+		$sizes = array(
+			// array( 400, 400, true ),
+			array( 620, 620, true ),
+			array( 800, 800, true ),
+			array( 1024, 1024, true ),
+		);
 	} elseif ( $item_type == 'landscape' ) {
-		$sizes = array();
+		$sizes = array(
+			// array( 400, 200, true ),
+			// array( 620, 310, true ),
+			// array( 900, 450, true ),
+			array( 1024, 512, true ),
+			// array( 1200, 600, true ),
+		);
 	} elseif ( $item_type == 'portrait' ) {
-		$sizes = array();
+		$sizes = array(
+			array( 512, 1024, true ),
+		);
 	}
+
+	$srcset = ipq_get_theme_image( get_post_thumbnail_id( get_the_id() ), 
+			$sizes,
+		    array(
+		        'class' => 'portfolio-image'
+		    )
+		);
+
+	return $srcset;
 
 }
