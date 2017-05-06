@@ -30,7 +30,6 @@ if ( isset( $GLOBALS['content_width'] ) ) {
 	<?php
 	$gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
 	// var_dump($gallery);
-	$img_size = 'full';
 	?>
 
     <div class="portfolio">
@@ -42,11 +41,23 @@ if ( isset( $GLOBALS['content_width'] ) ) {
 		// Loop through them and output an image
 
 		foreach ( (array) $gallery as $attachment_id => $attachment_url ) {
-			echo '<div class="all '.$portfolio_class.'">';
-			echo wp_get_attachment_image( $attachment_id, $img_size );
-			echo '</div>';
-		}
-		?>
+
+			/*
+		    Get portfolio item
+		    */
+			$item_type = mro_portfolio_item_type( $attachment_id );
+			$portfolio_class = mro_portfolio_item_class($item_type);
+			$srcset = mro_portfolio_item_get_srcset( $attachment_id, $item_type );
+
+			?>
+
+		    <div class="all <?php echo $portfolio_class; ?>">
+		    	<a class="content" href="#">
+		    		<div class="thumbnail"><?php echo $srcset; ?></div>
+		    	</a>
+		    </div><!-- .portfolio-item -->
+
+		<?php } ?>
 
    </div><!-- #portfolio -->
 

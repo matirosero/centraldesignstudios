@@ -25,7 +25,6 @@ function mro_portfolio_item_type( $attachment_id ) {
 	} elseif( $ratio >= 1.25 ) {
 		$item_type = 'portrait';
 	}
-
 	return $item_type;
 }
 
@@ -65,12 +64,13 @@ function mro_portfolio_item_get_srcset( $attachment_id, $item_type ) {
 		);
 	}
 
-	$srcset = ipq_get_theme_image( get_post_thumbnail_id( get_the_id() ), 
-			$sizes,
-		    array(
-		        'class' => 'portfolio-image'
-		    )
-		);
+	$srcset = ipq_get_theme_image( 
+		$attachment_id, 
+		$sizes,
+	    array(
+	        'class' => 'portfolio-image'
+	    )
+	);
 
 	return $srcset;
 
