@@ -1,0 +1,6 @@
+$animation-speed: 0.25s;
+$animation-easing: ease-out;
+
+$animate-color: color $animation-speed $animation-easing;
+$animate-bg: background-color $animation-speed $animation-easing;
+$animate-color-bg: $animate-color,$animate-bg;

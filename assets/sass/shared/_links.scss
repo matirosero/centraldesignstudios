@@ -1,3 +1,4 @@
 a {
+	transition: color 0.25s ease-out;
 	@include link-color($color__link, $color__link-hover);
 }
