@@ -1,10 +1,8 @@
 .entry-header,
 .entry-content,
 .post-navigation {
-@media #{$small-only} {
-	padding-left: $gutter-small;
-	padding-right: $gutter-small;
-}
+
+	@include contain-blocks;
 
 }
 
