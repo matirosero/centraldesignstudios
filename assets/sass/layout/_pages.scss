@@ -1,9 +1,19 @@
 .entry-header,
 .entry-content,
-.post-navigation {
+.entry-footer {
+	body:not(.single-post):not(.blog) & {
+		@include contain-blocks;
+	}
+}
 
-	@include contain-blocks;
+.entry-header {
+	text-align: center;
+}
 
+.entry-content {
+	.featured-image {
+		text-align: center;
+	}
 }
 
 .page-links {

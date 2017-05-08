@@ -31,7 +31,7 @@ $gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
 
 		<?php
 		if ( '' != get_the_post_thumbnail() && !$gallery ) { ?>
-			<div class="post-thumbnail">
+			<div class="featured-image">
 				<?php the_post_thumbnail( 'centraldesign-featured-image' ); ?>
 			</div>
 		<?php  } ?>
