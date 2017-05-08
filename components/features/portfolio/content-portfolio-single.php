@@ -22,21 +22,20 @@ $gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
 		<?php the_content(); ?>
 
 		<?php
-		if ( '' != get_the_post_thumbnail() && !$gallery ) { ?>
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail( 'centraldesign-featured-image' ); ?>
-			</div>
-		<?php  } ?>
-
-		<?php
 			wp_link_pages( array(
 				'before'   => '<div class="page-links clear">',
 				'after'    => '</div>',
 				'pagelink' => '<span class="page-link">%</span>',
 			) );
 		?>
-	</div>
 
+		<?php
+		if ( '' != get_the_post_thumbnail() && !$gallery ) { ?>
+			<div class="post-thumbnail">
+				<?php the_post_thumbnail( 'centraldesign-featured-image' ); ?>
+			</div>
+		<?php  } ?>
+	</div>
 
 	<?php
 

@@ -1,3 +1,13 @@
+.entry-header,
+.entry-content,
+.post-navigation {
+@media #{$small-only} {
+	padding-left: $gutter-small;
+	padding-right: $gutter-small;
+}
+
+}
+
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
