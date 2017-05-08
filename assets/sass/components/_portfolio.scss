@@ -49,7 +49,7 @@
 
 }
 
-@media screen and (min-width: #{$breakpoint_tablet}) {
+@media #{$medium-up} {
 	.portfolio-sizer,
 	.portfolio-item {
 		width: 25%;
