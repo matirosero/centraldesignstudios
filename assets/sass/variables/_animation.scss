@@ -3,4 +3,5 @@ $animation-easing: ease-out;
 
 $animate-color: color $animation-speed $animation-easing;
 $animate-bg: background-color $animation-speed $animation-easing;
+$animate-opacity: opacity $animation-speed;
 $animate-color-bg: $animate-color,$animate-bg;

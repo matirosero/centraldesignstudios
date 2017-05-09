@@ -7,16 +7,30 @@
 //   font-size: 80%;
 // }
 
-#filters {
+#filters,
+.project-categories {
 	@include reset-list;
-	margin-top: 1rem;
 	text-align: center;
 	li {
 		display: inline-block;
-		
+	}
+}
+
+#filters {
+	margin-top: 1rem;
+	li {
 		padding: 0 .5rem;
 	}
 }
+.project-categories {
+	margin: 0;
+	font-size: .9rem;
+	li {
+		padding: 0 .25rem;
+	}
+}
+
+
 
 .portfolio {
 	// background-color: $portfolio-grid-background;
@@ -28,27 +42,50 @@
 	width: 50%;
 }
 .portfolio-item {
-	// overflow: hidden;
-	// @include aspect-ratio(1, 1);
+
 	a {
-		display: block;
-		// padding: 15px;
-		// border-bottom: 3px solid #fff;
-		// border-top: 3px solid #fff;
-		// border-right: 6px solid #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		width: 100%;
+		transition: $animate-color-bg;
+		@include link-bg-color(color('black', 'base'), color('grey', 'dark'), color('white', 'base'), color('white', 'base'));
+
 		img {
 			display: block;
+			opacity: .55;
+			transition: $animate-opacity;
+			backface-visibility: hidden; //So image doesn't flickr -webkit
+		}
+		&:hover img {
+			opacity: .15;
+		}
+		.link-info {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+			transform: translateY(-50%);
+			text-align: center;
+			z-index: 999;
+			padding: .5rem;
+			h3 {
+				margin: 0;
+			}
+
 		}
 	}
-
 }
 .portfolio-item--width2 {
 	width: 100%;
-
-		// @include aspect-ratio(2, 1);
-
 }
 
+@media #{$small-only} {
+	.read-more {
+		display: none;
+	}
+}
 @media #{$medium-up} {
 	.portfolio-sizer,
 	.portfolio-item {

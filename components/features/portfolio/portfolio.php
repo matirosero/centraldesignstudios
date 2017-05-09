@@ -75,7 +75,24 @@
 			    <div class="all <?php echo $portfolio_class.' '. $tax; ?>">
 			    	<a class="content" href="<?php echo get_permalink(); ?>">
 			    		<div class="thumbnail"><?php echo $srcset; ?></div>
+			    		<div class="link-info">
+			    			<!-- <div class="container"> -->
+				    			<h3><?php the_title(); ?></h3>
+				    			<ul class="project-categories">
+					    			<?php
+									$posttags = get_the_terms($post->id, 'project-categories');
+									if ($posttags) {
+										foreach($posttags as $tag) {
+									    echo '<li>' .$tag->name. '</li>'; 
+									  }
+									}
+									?>
+								</ul>
+				    			<span class="read-more">More about this project</span>
+			    			<!-- </div> -->
+			    		</div><!-- .link-info -->
 			    	</a>
+
 			    </div><!-- .portfolio-item -->
 
 					<?php //get_template_part( 'components/features/portfolio/content', 'portfolio' ); ?>
