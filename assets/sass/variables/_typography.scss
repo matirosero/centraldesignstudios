@@ -3,3 +3,33 @@ $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
+
+
+
+$header-sizes: (
+  small: (
+    'h1': 24px,//24
+    'h2': 20px,//20
+    'h3': 19px,//19
+    'h4': 18px,
+    'h5': 17px,
+    'h6': 16px,
+  ),
+  medium: (
+    'h1': 48px,
+    'h2': 40px,
+    'h3': 31px,
+    'h4': 25px,
+    'h5': 20px,
+    'h6': 16px,
+  ),
+);
+
+@function headersize($breakpoint, $tag) {
+    @return map-get(map-get($header-sizes, $breakpoint), $tag);
+}
+
+//usage
+// h1 {
+//   font-size: headersize('small', 'h1');
+// }

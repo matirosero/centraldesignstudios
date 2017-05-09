@@ -77,7 +77,7 @@
 			    		<div class="thumbnail"><?php echo $srcset; ?></div>
 			    		<div class="link-info">
 			    			<!-- <div class="container"> -->
-				    			<h3><?php the_title(); ?></h3>
+				    			<h3 title="project-title"><?php the_title(); ?></h3>
 				    			<ul class="project-categories">
 					    			<?php
 									$posttags = get_the_terms($post->id, 'project-categories');
