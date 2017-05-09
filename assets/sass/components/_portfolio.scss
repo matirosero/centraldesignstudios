@@ -13,14 +13,12 @@
 	text-align: center;
 	li {
 		display: inline-block;
+		padding: 0 .5rem;
 	}
 }
 
 #filters {
 	margin-top: 1rem;
-	li {
-		padding: 0 .5rem;
-	}
 }
 .project-categories {
 	.portfolio-item & {
@@ -93,13 +91,16 @@
 	}
 }
 @media #{$medium-up} {
-	.project-title {
-		.portfolio-item & {
-			// font-size: 1.25rem;
-		}
-	}
+
 }
 @media #{$large-up} {
+	#filters,
+	.project-categories {
+		li {
+			padding: 0 1rem;
+		}
+	}
+
 	.portfolio-sizer,
 	.portfolio-item {
 		width: 25%;
