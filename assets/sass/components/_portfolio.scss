@@ -13,7 +13,7 @@
 	text-align: center;
 	li {
 		display: inline-block;
-		padding: 0 .5rem;
+		padding: 0 .65rem;
 	}
 }
 
@@ -50,12 +50,17 @@
 
 		img {
 			display: block;
-			opacity: .55;
 			transition: $animate-opacity;
 			backface-visibility: hidden; //So image doesn't flickr -webkit
+			.home & {
+				opacity: .55;
+			}
 		}
 		&:hover img {
-			opacity: .15;
+			opacity: .45;
+			.home & {
+				opacity: .15;
+			}
 		}
 		.link-info {
 			position: absolute;

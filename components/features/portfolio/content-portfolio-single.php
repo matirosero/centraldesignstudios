@@ -20,7 +20,6 @@ $gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
 	</header>
 	<div class="entry-content">
 		<?php the_content(); ?>
-
 		<?php
 			wp_link_pages( array(
 				'before'   => '<div class="page-links clear">',
@@ -42,8 +41,12 @@ $gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
 	if ( $gallery ) {
 
 		if ( '' != get_the_post_thumbnail() ) {
+
 			$post_thumbnail_id = get_post_thumbnail_id();
-			$gallery = array($post_thumbnail_id => '') + $gallery;
+			$post_thumbnail_url = get_the_post_thumbnail_url($post->ID, 'full');
+
+			$gallery = array($post_thumbnail_id => $post_thumbnail_url ) + $gallery;
+
 		} ?>
 
 	   	<div class="portfolio">
@@ -65,7 +68,7 @@ $gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
 				?>
 
 			    <div class="all <?php echo $portfolio_class; ?>">
-			    	<a class="content" href="#">
+			    	<a class="content" href="<?php echo $attachment_url; ?>">
 			    		<div class="thumbnail"><?php echo $srcset; ?></div>
 			    	</a>
 			    </div><!-- .portfolio-item -->
