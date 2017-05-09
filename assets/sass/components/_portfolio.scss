@@ -91,7 +91,13 @@
 	}
 }
 @media #{$medium-up} {
-
+	.portfolio-item {
+		a {
+			.link-info {
+				padding: 1rem;
+			}
+		}
+	}
 }
 @media #{$large-up} {
 	#filters,
