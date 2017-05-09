@@ -16,7 +16,7 @@ $gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-		<?php echo get_the_term_list( $post->ID, 'project-categories', '<span class="portfolio-entry-meta">', esc_html_x(', ', 'Used between list items, there is a space after the comma.', 'centraldesign' ), '</span>' ); ?>
+		<?php mro_list_project_categories(); ?>
 	</header>
 	<div class="entry-content">
 		<?php the_content(); ?>

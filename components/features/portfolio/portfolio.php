@@ -78,16 +78,8 @@
 			    		<div class="link-info">
 			    			<!-- <div class="container"> -->
 				    			<h3 title="project-title"><?php the_title(); ?></h3>
-				    			<ul class="project-categories">
-					    			<?php
-									$posttags = get_the_terms($post->id, 'project-categories');
-									if ($posttags) {
-										foreach($posttags as $tag) {
-									    echo '<li>' .$tag->name. '</li>'; 
-									  }
-									}
-									?>
-								</ul>
+				    			
+				    			<?php mro_list_project_categories(); ?>
 				    			<span class="read-more">More about this project</span>
 			    			<!-- </div> -->
 			    		</div><!-- .link-info -->

@@ -75,3 +75,17 @@ function mro_portfolio_item_get_srcset( $attachment_id, $item_type ) {
 	return $srcset;
 
 }
+
+
+function mro_list_project_categories() {
+	global $post;
+	$posttags = get_the_terms($post->id, 'project-categories');
+	if ($posttags) { ?>
+		<ul class="project-categories">
+			<?php
+			foreach($posttags as $tag) {
+		    	echo '<li>' .$tag->name. '</li>'; 
+		  	} ?>
+		</ul>
+	<?php }
+}
