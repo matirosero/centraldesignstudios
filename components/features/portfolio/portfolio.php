@@ -78,7 +78,6 @@
 			    		<div class="link-info">
 			    			<!-- <div class="container"> -->
 				    			<h3 title="project-title"><?php the_title(); ?></h3>
-				    			
 				    			<?php mro_list_project_categories(); ?>
 				    			<span class="read-more">More about this project</span>
 			    			<!-- </div> -->

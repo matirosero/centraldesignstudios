@@ -29,11 +29,14 @@
 
 		<?php get_template_part( 'components/navigation/navigation', 'top' ); ?>
 
-		<?php get_template_part( 'components/header/header', 'image' ); ?>
+		<?php
+		if ( is_front_page() ) :
+
+			get_template_part( 'components/header/header', 'image' );
+
+		endif; ?>
 
 		<?php centraldesign_the_custom_logo(); ?>
-
-		
 
 		<?php centraldesign_social_menu(); ?>
 

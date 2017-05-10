@@ -1,3 +1,33 @@
+#main-site-logo {
+	.main-navigation & {
+		position: absolute;
+		// height: $topbar-height-small;
+		img {
+			max-height: $topbar-height-small;
+			width: auto !important;
+		}
+	}
+
+	@media #{$medium-up} {
+		.main-navigation & {
+			// float: left;
+			// height: $topbar-height-small;
+			// padding: $gutter-small $gutter-small 0 0;
+			margin-top: $gutter-small;
+			a{
+				line-height: $topbar-height-medium - $gutter-small*2 !important;
+				height: $topbar-height-medium - $gutter-small*2 !important;				
+			}
+
+			max-height: $topbar-height-medium - $gutter-small*2;
+			img {
+				max-height: $topbar-height-medium - $gutter-small*2;
+			}
+		}
+	}
+
+}
+
 .site-branding {
 	padding-left: $gutter-small;
 	padding-right: $gutter-small;
