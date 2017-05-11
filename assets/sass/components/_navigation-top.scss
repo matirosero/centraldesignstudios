@@ -7,11 +7,14 @@
 	margin-bottom: 1rem;
 
 	ul {
-		display: none;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
 		text-align: center;
+
+		&.responsive-menu {
+			display: none;
+		}
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -82,7 +85,7 @@
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.main-navigation.toggled ul.responsive-menu {
 	display: block;
 }
 
@@ -92,12 +95,18 @@
 	margin-right: 5px;
 }
 
+@media #{$small-only} {
+	body:not(.home) .main-navigation {
+		margin-bottom: $topbar-height-small + $mobile-logo-vertical-margin*1.5;
+	}
+}
+
 @media #{$medium-up} {
 	.menu-toggle {
 		display: none;
 	}
 	.main-navigation {
-		ul {
+		ul.responsive-menu {
 			display: block;
 		}
 		a {

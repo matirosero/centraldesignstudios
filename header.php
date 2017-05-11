@@ -34,9 +34,9 @@
 
 			get_template_part( 'components/header/header', 'image' );
 
-		endif; ?>
+			centraldesign_the_custom_logo();
 
-		<?php centraldesign_the_custom_logo(); ?>
+		endif; ?>
 
 		<?php centraldesign_social_menu(); ?>
 
