@@ -8,6 +8,11 @@
 
 .entry-header {
 	text-align: center;
+	@media #{$medium-up} {
+		body:not(.home) & .entry-title {
+			margin-top: 0;
+		}
+	}
 }
 
 .entry-content {

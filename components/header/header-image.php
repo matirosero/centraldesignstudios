@@ -9,7 +9,7 @@
 
 		<div class="site-branding">
 			<h1 class="site-title">
-				
+
 				<?php
 				if ( has_custom_logo() ) {
 					centraldesign_the_custom_logo();

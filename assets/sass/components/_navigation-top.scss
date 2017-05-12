@@ -4,7 +4,7 @@
 	float: left;
 	width: 100%;
 	border-bottom: 1px solid $border-color;
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 
 	ul {
 		list-style: none;
@@ -106,6 +106,7 @@
 		display: none;
 	}
 	.main-navigation {
+		margin-bottom: 3.5rem;
 		ul.responsive-menu {
 			display: block;
 		}

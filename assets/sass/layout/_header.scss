@@ -1,9 +1,16 @@
-.site-header {
-	// margin-bottom: 1rem;
+.site-branding {
+	// margin-top: 40px;
 }
 
 
 #main-site-logo {
+	a {
+		&:hover, 
+		&:focus,
+		&:active {
+			background-color: color('white');
+		}
+	}
 	.main-navigation & {
 		position: absolute;
 		// height: $topbar-height-small;
