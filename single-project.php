@@ -21,7 +21,7 @@ get_header(); ?>
 				// endif;
 			?>
 
-			<?php the_post_navigation(); ?>
+			<?php //the_post_navigation(); ?>
 
 		<?php endwhile; // end of the loop. ?>
 

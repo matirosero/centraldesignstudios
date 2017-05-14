@@ -116,7 +116,7 @@
 			height: $topbar-height-medium;
 			line-height: $topbar-height-medium;
 			padding: $topbar-link-padding-small;
-			@include link-bg-color(color('white', 'base'), color('grey', 'verylight'), color('black', 'base'), color('black', 'base'));
+			@include link-bg-color(color('white', 'base'), color('blue', 'base'), color('black', 'base'), color('white', 'base'));
 		}
 	}
 }

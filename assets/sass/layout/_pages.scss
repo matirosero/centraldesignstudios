@@ -18,6 +18,12 @@
 .entry-content {
 	.featured-image {
 		text-align: center;
+		&:not(:first-child) {
+			margin-top: 3em;
+		}
+	}
+	+ .portfolio {
+		margin-top: 3em;
 	}
 }
 

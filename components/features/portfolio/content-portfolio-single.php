@@ -17,9 +17,14 @@ $gallery = get_post_meta( $post->ID, 'mro_project_gallery', 1 );
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<?php mro_list_project_categories(); ?>
+
 	</header>
 	<div class="entry-content">
 		<?php the_content(); ?>
+
+		<?php //mro_caldera_modal(); ?>
+		<?php get_template_part( 'components/features/portfolio/content', 'portfolio-caldera-modal' ); ?>
+		
 		<?php
 			wp_link_pages( array(
 				'before'   => '<div class="page-links clear">',

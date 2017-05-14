@@ -46,7 +46,7 @@
 		position: relative;
 		width: 100%;
 		transition: $animate-color-bg;
-		@include link-bg-color(color('black', 'base'), color('grey', 'dark'), color('white', 'base'), color('white', 'base'));
+		@include link-bg-color(color('black', 'base'), color('blue', 'base'), color('white', 'base'), color('white', 'base'));
 
 		img {
 			display: block;
@@ -59,7 +59,7 @@
 		&:hover img {
 			opacity: .45;
 			.home & {
-				opacity: .15;
+				opacity: .35;
 			}
 		}
 		.link-info {

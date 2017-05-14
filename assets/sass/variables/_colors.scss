@@ -13,6 +13,11 @@ $colors: (
    base: #fff,
    trans: transparentize(#fff, .5)
  ),
+ 'blue': (
+   dark: darken( #008CBA, 10% ),
+   base: #008CBA,
+   trans: transparentize(#008CBA, .3)
+ ),
  'social': (
    facebook: #3c5a9a,
    twitter: #55acee,
@@ -36,8 +41,8 @@ $colors: (
 
 $text-color: color('black', 'base');
 
-$link-color: color('grey', 'base');
-$link-hover: color('grey', 'light');
+$link-color: color('blue', 'base');
+$link-hover: color('blue', 'dark');
 
 $border-color: color('grey', 'light');
 

@@ -174,6 +174,11 @@ require_once get_stylesheet_directory() . '/inc/portfolio-functions.php';
 require_once get_stylesheet_directory() . '/inc/wp-image-processing-queue/image-processing-queue.php';
 
 /**
+ * Make Caldera use foundation classes instead of bootstrap.
+ */
+// require get_template_directory() . '/inc/caldera-foundation.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';

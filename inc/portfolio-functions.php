@@ -89,3 +89,8 @@ function mro_list_project_categories() {
 		</ul>
 	<?php }
 }
+
+
+function mro_caldera_modal($caldera_id = 'CF59162a9ed3ba6') {
+	echo do_shortcode( '[caldera_form_modal id="'.$caldera_id.'" type="button" width="600"]Tell me more about this project[/caldera_form_modal]' );
+}
