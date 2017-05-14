@@ -69,7 +69,7 @@
 				$portfolio_class = mro_portfolio_item_class($item_type);
 
 				$srcset = mro_portfolio_item_get_srcset( $post_thumbnail_id, $item_type );
-
+	
 				?>
 
 			    <div class="all <?php echo $portfolio_class.' '. $tax; ?>">
@@ -80,6 +80,7 @@
 				    			<h3 title="project-title"><?php the_title(); ?></h3>
 				    			<?php mro_list_project_categories(); ?>
 				    			<span class="read-more">More about this project</span>
+				    			<?php echo $item_type; ?>
 			    			<!-- </div> -->
 			    		</div><!-- .link-info -->
 			    	</a>

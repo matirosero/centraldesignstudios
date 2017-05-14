@@ -9,6 +9,8 @@
 
 function mro_portfolio_item_type( $attachment_id ) {
 
+    global $post;
+
     $image_attributes = wp_get_attachment_image_src( $attachment_id, 'full' );
 
 	if ( $image_attributes ) :
@@ -24,18 +26,34 @@ function mro_portfolio_item_type( $attachment_id ) {
 		$item_type = 'landscape';
 	} elseif( $ratio >= 1.25 ) {
 		$item_type = 'portrait';
+	} else {
+		if ( is_singular( 'project' ) ) {
+			if ( $attachment_id == get_post_thumbnail_id( $post->ID )) {
+				$item_type .= '2x';
+			}
+		} else {
+			$mro_grid_2x = get_post_meta( $post->ID, 'mro_project_gridsize_2x', true );
+			if ( $mro_grid_2x == 'on' ) {
+				$item_type .= '2x';
+			}
+		}
 	}
 	return $item_type;
 }
 
 function mro_portfolio_item_class( $item_type ) {
 
+	global $post;
+
 	$class = 'portfolio-item';
+
 
 	if ( $item_type == 'landscape' ) {
 		$class .= ' portfolio-item--width2';
 	} elseif ( $item_type == 'portrait' ) {
 		$class .= ' portfolio-item--height2';
+	} elseif ( $item_type == 'square2x' ) {
+		$class .= ' portfolio-item--width2 portfolio-item--height2';
 	}
 
 	return $class;
@@ -43,7 +61,7 @@ function mro_portfolio_item_class( $item_type ) {
 
 function mro_portfolio_item_get_srcset( $attachment_id, $item_type ) {
 
-	if ( $item_type == 'square' ) {
+	if ( $item_type == 'square' || $item_type == 'square2x' ) {
 		$sizes = array(
 			// array( 400, 400, true ),
 			array( 620, 620, true ),
