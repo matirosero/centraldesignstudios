@@ -1,5 +1,4 @@
 (function($){
-
     // $('.portfolio').isotope({
     //     // options
     //     itemSelector: '.portfolio-item',
@@ -20,6 +19,13 @@
     // layout Isotope after each image loads
     $grid.imagesLoaded().progress( function() {
       $grid.isotope('layout');
+    });
+
+
+    // filter items on button click
+    $('#filters').on( 'click', 'li a', function() {
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
     });
 
 } ) ( jQuery );

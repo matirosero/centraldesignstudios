@@ -82,8 +82,8 @@ function mro_portfolio_item_get_srcset( $attachment_id, $item_type ) {
 		);
 	}
 
-	$srcset = ipq_get_theme_image( 
-		$attachment_id, 
+	$srcset = ipq_get_theme_image(
+		$attachment_id,
 		$sizes,
 	    array(
 	        'class' => 'portfolio-image'
@@ -94,6 +94,23 @@ function mro_portfolio_item_get_srcset( $attachment_id, $item_type ) {
 
 }
 
+function mro_categories_to_class() {
+	global $post;
+	$posttags = get_the_terms($post->id, 'project-categories');
+
+	if ($posttags) {
+		$tag_names = array();
+		foreach ($posttags as $tag) {
+			$tag_names[] = $tag->slug;
+		}
+		// var_dump($tag_names);
+		$tag_classes = implode(' ',$tag_names);
+		return $tag_classes;
+	} else {
+		return false;
+	}
+}
+
 
 function mro_list_project_categories() {
 	global $post;
@@ -102,7 +119,7 @@ function mro_list_project_categories() {
 		<ul class="project-categories">
 			<?php
 			foreach($posttags as $tag) {
-		    	echo '<li>' .$tag->name. '</li>'; 
+		    	echo '<li>' .$tag->name. '</li>';
 		  	} ?>
 		</ul>
 	<?php }
